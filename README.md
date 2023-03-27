@@ -4,12 +4,12 @@ Git is a version control software that lets you keep track of versions of your c
 GitHub is an online repository that lets you store your gits.
 
 
-Bash Commands
-cd x - change directory to x (needs to be directly accessible from current directory)
-cd ~ - go back to home directory
-cd .. - goes back one level
-clear - clears screen of previous commands
-ls - list contents of directory
+Bash Commands  
+cd x - change directory to x (needs to be directly accessible from current directory)  
+cd ~ - go back to home directory  
+cd .. - goes back one level  
+clear - clears screen of previous commands  
+ls - list contents of directory  
 mkdir - make a folder within your current dir
 rm x- remove file x
 rm -rf x - remove folder x
