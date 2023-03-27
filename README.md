@@ -18,7 +18,7 @@ touch x.extension - makes a file
 Repositories (repos) store the full history and source control of a project. They can be stored either locally or hosted online. Most repositories are stored on GitHub, while core contributors make a local copy to work on using push/pull.
 
 
-Git Commands
+Git Command
 
 git init - makes the current folder a repository
 git add filename - add a specified file to the staging area (not committed yet)
