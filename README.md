@@ -1,3 +1,5 @@
+Learning Git and Bash Terminal
+
 Git is a version control software that lets you keep track of versions of your code.
 GitHub is an online repository that lets you store your gits.
 
