@@ -14,6 +14,7 @@ mkdir - make a folder within your current dir
 rm x- remove file x  
 rm -rf x - remove folder x  
 touch x.extension - makes a file  
+pwd - print working directory (the directory you're currently in)
 
 Repositories (repos) store the full history and source control of a project. They can be stored either locally or hosted online. Most repositories are stored on GitHub, while core contributors make a local copy to work on using push/pull.  
 
