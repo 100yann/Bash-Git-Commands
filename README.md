@@ -31,7 +31,8 @@ git commit - commit the current changes in the staging area (index) to the maste
 git commit -m - adds message to your commit  
 git log - returns all previous commits with a log id  
 git log —oneline - returns all previous commits with a log id but each log id takes up only one line  
-git checkout log id - goes back to the commit with the specified log id  
+git checkout log id - goes back to the commit with the specified log id 
+git switch -    - reverts the checkout command and goes back to the previous head
 git revert log id - reverts a commit with the specified log id but adds the revert function in the index ( so you can revert/remove the first revert)  
 git reset - goes all the way back to a specified lo id and removes other logs  
   
