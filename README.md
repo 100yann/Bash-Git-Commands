@@ -40,4 +40,4 @@ adding a file within a .gitignore file will stop git from tracking changes to th
   
 GIT STYLE  
   
-Instead of commiting multiple changes in one single commit, organize your commits by functions so that the program/changes are easier to track and if necessary modify.  Git docs recommends describing changes in present tense, imperative style
+Instead of commiting multiple changes in one single commit, organize your commits by functions so that the program/changes are easier to track and if necessary modify.    Git docs recommends describing changes in present tense, imperative style
