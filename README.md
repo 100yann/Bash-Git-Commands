@@ -37,7 +37,7 @@ git revert log id - reverts a commit with the specified log id but adds the reve
 git reset - goes all the way back to a specified lo id and removes other logs  
   
 adding a file within a .gitignore file will stop git from tracking changes to these files and commiting them  
-
+  
 GIT STYLE  
   
 Instead of commiting multiple changes in one single commit, organize your commits by functions so that the program/changes are easier to track and if necessary modify.  Git docs recommends describing changes in present tense, imperative style
