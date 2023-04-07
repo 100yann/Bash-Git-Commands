@@ -35,7 +35,7 @@ git checkout log id - goes back to the commit with the specified log id
 git switch -    - reverts the checkout command and goes back to the previous head  
 git revert log id - reverts a commit with the specified log id but adds the revert function in the index ( so you can revert/remove the first revert)  
 git reset - goes all the way back to a specified lo id and removes other logs  
-git commit --amend - update/edit the message of your previous commit
+git commit --amend - update/edit the message or files of your previous commit
   
 adding a file within a .gitignore file will stop git from tracking changes to these files and commiting them  
   
