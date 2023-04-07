@@ -37,7 +37,8 @@ git revert log id - reverts a commit with the specified log id but adds the reve
 git reset - goes all the way back to a specified lo id and removes other logs  
 git commit --amend - update/edit the message or files of your previous commit
   
-adding a file within a .gitignore file will stop git from tracking changes to these files and commiting them  
+adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
+
   
 GIT STYLE  
   
