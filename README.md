@@ -42,6 +42,9 @@ git branch - view all existing branches
 git branch X - creates a new branch with the name X  
 git switch X - switches to an existing branch  
 git switch -c X - creates and switches to branch X  
+git branch -d X - delets branch X  
+  
+  
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
 
   
