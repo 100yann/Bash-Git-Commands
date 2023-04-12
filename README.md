@@ -29,6 +29,7 @@ git rm -f filename - removes a file from the current staging area (but this also
 git rm — cached filename - removes a file from staging area without deleting it  
 git commit - commit the current changes in the staging area (index) to the master branch  
 git commit -m - adds message to your commit  
+git commit -a -m - commits all unsaved changes and adds message  
 git log - returns all previous commits with a log id  
 git log —oneline - returns all previous commits with a log id but each log id takes up only one line  
 git checkout log id - goes back to the commit with the specified log id  
@@ -39,8 +40,8 @@ git commit --amend - update/edit the message or files of your previous commit
 git push -u main - pushes your local repository to github  
 git branch - view all existing branches  
 git branch X - creates a new branch with the name X  
-git switch X - switches to an existing branch
-  
+git switch X - switches to an existing branch  
+git switch -c X - creates and switches to branch X  
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
 
   
