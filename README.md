@@ -46,6 +46,14 @@ git switch -c X - creates and switches to branch X
 git branch -d X - delets branch X, only possible if you're not currently on specified branch  
 git branch -m X - rename the branch you're currently on to X  
 git merge X - merge branch X with your current branch  
+git diff - returns all changes made in the current working directory that aren't staged  
+git diff HEAD - same but both staged and unstaged changes  
+git diff --staged/--cached - shows all staged changes  
+git diff HEAD [filename] - returns changes in specific file  
+git diff branch1..branch2 - returns changes between the 2 branches  
+git diff commit1..commit2 - same but for commits  
+
+
   
   
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
