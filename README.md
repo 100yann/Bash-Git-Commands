@@ -52,9 +52,14 @@ git diff --staged/--cached - shows all staged changes
 git diff HEAD [filename] - returns changes in specific file  
 git diff branch1..branch2 - returns changes between the 2 branches  
 git diff commit1..commit2 - same but for commits  
+git stash - save uncommited changes so you can change branches without conflicts/commiting your changes/losing them. You can stash multiple times  
+git stash list - used if you have multiple stashes at the same time  
+git stash apply stash@{X} - apply the stash with the specified index  
+git stash pop - remove the most recently stashed changes and apply them to your working copy  
+git stash apply - apply whatever is stashed but it doesn't remove it from the stash itself  
+git stash drop / git stash drop stash@{X}- delete the last stash / specified stash  
+git stash clear - clear all stashes  
 
-
-  
   
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
 
