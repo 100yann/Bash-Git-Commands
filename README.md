@@ -33,7 +33,7 @@ git commit -a -m - commits all unsaved changes and adds message
 git log - returns all previous commits with a log id  
 git log —oneline - returns all previous commits with a log id but each log id takes up only one line  
 git checkout log id - goes back to the commit with the specified log id  
-git checkout HEAD"~"int - goes back int times before the last commit  
+git checkout HEAD tildesign int - goes back int times before the last commit  
 git checkout HEAD filename - goes back to the last commit and deletes all uncommitted changes  
 git commit --amend - update/edit the message or files of your previous commit  
 git push -u main - pushes your local repository to github  
@@ -60,7 +60,7 @@ git stash apply - apply whatever is stashed but it doesn't remove it from the st
 git stash drop / git stash drop stash@{X}- delete the last stash / specified stash  
 git stash clear - clear all stashes  
 git restore filename - restores the file to the last commit, deleting all uncommitted changes  
-git restore --source HEAD"~"X filename - restores the file to X commits before your last commit  
+git restore --source HEAD tildesign X filename - restores the file to X commits before your last commit  
 git reset - resets repository to specific commit. Will delete all commits that followed the specific commit but doesn't delete the changes made within those commits  
 git reset --hard - does the same but deletes the changes as well  
 git revert githash - creates a new commit where the changes from specified githash are deleted but the commit itself isn't  
