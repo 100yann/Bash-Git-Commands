@@ -35,9 +35,6 @@ git log —oneline - returns all previous commits with a log id but each log id 
 git checkout log id - goes back to the commit with the specified log id  
 git checkout HEAD~int - goes back int times before the last commit  
 git checkout HEAD filename - goes back to the last commit and deletes all uncommitted changes  
-git switch -    - reverts the checkout command and goes back to the previous head  
-git revert log id - reverts a commit with the specified log id but adds the revert function in the index ( so you can revert/remove the first revert)  
-git reset - goes all the way back to a specified lo id and removes other logs  
 git commit --amend - update/edit the message or files of your previous commit  
 git push -u main - pushes your local repository to github  
 git branch - view all existing branches  
@@ -45,6 +42,7 @@ git branch X - creates a new branch with the name X
 git branch -v - displays all existing branches with more info about them  
 git switch X - switches to an existing branch  
 git switch -c X - creates and switches to branch X  
+git switch -    - reverts the checkout command and goes back to the previous head   
 git branch -d X - delets branch X, only possible if you're not currently on specified branch  
 git branch -m X - rename the branch you're currently on to X  
 git merge X - merge branch X with your current branch  
@@ -61,6 +59,13 @@ git stash pop - remove the most recently stashed changes and apply them to your 
 git stash apply - apply whatever is stashed but it doesn't remove it from the stash itself  
 git stash drop / git stash drop stash@{X}- delete the last stash / specified stash  
 git stash clear - clear all stashes  
+git restore filename - restores the file to the last commit, deleting all uncommitted changes  
+git restore --source HEAD~X filename - restores the file to X commits before your last commit  
+git reset - resets repository to specific commit. Will delete all commits that followed the specific commit but doesn't delete the changes made within those commits  
+git reset --hard - does the same but deletes the changes as well  
+git revert githash - creates a new commit where the changes from specified githash are deleted but the commit itself isn't  
+
+If you want to reverse some commits that other people already have on their machines, you should revert instead of reset. If you want to reverse commits that you made but aren't shared yet - you can use reset.  
 
   
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
