@@ -36,7 +36,6 @@ git checkout log id - goes back to the commit with the specified log id
 git checkout HEAD tildesign int - goes back int times before the last commit  
 git checkout HEAD filename - goes back to the last commit and deletes all uncommitted changes  
 git commit --amend - update/edit the message or files of your previous commit  
-git push -u main - pushes your local repository to github  
 git branch - view all existing branches  
 git branch X - creates a new branch with the name X  
 git branch -v - displays all existing branches with more info about them  
@@ -72,7 +71,8 @@ git push [remote] [branch] - pushes(uploads) the specified branch to the remote
 git push -u remote branch - will set the upstream, so your repo will remember which remote to push to afterwards and you can only use "git push"  
 git push [remote] [local-branch]:[remote-branch] - pushes specified local branch to a specific branch on GitHub  
 git clone url - used when you have a GitHub repo that you want to pull(clone) to your local repo  
-
+git branch -M main - renames your current branch to main, which is the standard branch name for GitHub, as opposed to master  
+  
 
 
 If you want to reverse some commits that other people already have on their machines, you should revert instead of reset. If you want to reverse commits that you made but aren't shared yet - you can use reset.  
