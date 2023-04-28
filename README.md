@@ -64,6 +64,11 @@ git restore --source HEAD tildesign X filename - restores the file to X commits 
 git reset - resets repository to specific commit. Will delete all commits that followed the specific commit but doesn't delete the changes made within those commits  
 git reset --hard - does the same but deletes the changes as well  
 git revert githash - creates a new commit where the changes from specified githash are deleted but the commit itself isn't  
+git remote -v - returns any existing remotes for your repository  
+git remote add [name(will be used as reference for the url)] [url] - adds a new remote to the current repository  
+git remote rename [oldname] [newname] - renames the specified remote  
+git remote remove [name] - deletes the specified remote  
+
 
 If you want to reverse some commits that other people already have on their machines, you should revert instead of reset. If you want to reverse commits that you made but aren't shared yet - you can use reset.  
 
