@@ -65,9 +65,14 @@ git reset - resets repository to specific commit. Will delete all commits that f
 git reset --hard - does the same but deletes the changes as well  
 git revert githash - creates a new commit where the changes from specified githash are deleted but the commit itself isn't  
 git remote -v - returns any existing remotes for your repository  
-git remote add [name(will be used as reference for the url)] [url] - adds a new remote to the current repository  
+git remote add [name(will be used as reference for the url)] [url] - adds a new remote to the current repository, used when you already have code written that you want to push to a GitHub repo  
 git remote rename [oldname] [newname] - renames the specified remote  
 git remote remove [name] - deletes the specified remote  
+git push [remote] [branch] - pushes(uploads) the specified branch to the remote  
+git push -u remote branch - will set the upstream, so your repo will remember which remote to push to afterwards and you can only use "git push"  
+git push [remote] [local-branch]:[remote-branch] - pushes specified local branch to a specific branch on GitHub  
+git clone url - used when you have a GitHub repo that you want to pull(clone) to your local repo  
+
 
 
 If you want to reverse some commits that other people already have on their machines, you should revert instead of reset. If you want to reverse commits that you made but aren't shared yet - you can use reset.  
