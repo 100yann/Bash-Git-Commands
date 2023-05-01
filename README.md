@@ -44,6 +44,7 @@ git switch -c X - creates and switches to branch X
 git switch -    - reverts the checkout command and goes back to the previous head   
 git branch -d X - delets branch X, only possible if you're not currently on specified branch  
 git branch -m X - rename the branch you're currently on to X  
+git branch -r - view the remote branches my local repo knows about  
 git merge X - merge branch X with your current branch  
 git diff - returns all changes made in the current working directory that aren't staged  
 git diff HEAD - same but both staged and unstaged changes  
@@ -71,6 +72,8 @@ git push [remote] [branch] - pushes(uploads) the specified branch to the remote
 git push -u remote branch - will set the upstream, so your repo will remember which remote to push to afterwards and you can only use "git push"  
 git push [remote] [local-branch]:[remote-branch] - pushes specified local branch to a specific branch on GitHub  
 git clone url - used when you have a GitHub repo that you want to pull(clone) to your local repo  
+If you clone a GitHub repo with multiple branches, if you use "git branch" in your local repo you'll only see the main/master branch but with "git branch -r" you'll see all other branches from the GitHub repo. To connect/switch to those you can simply use "git switch [branch-name]"  
+
 git branch -M main - renames your current branch to main, which is the standard branch name for GitHub, as opposed to master  
   
 
