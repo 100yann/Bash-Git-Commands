@@ -64,6 +64,9 @@ git restore --source HEAD tildesign X filename - restores the file to X commits 
 git reset - resets repository to specific commit. Will delete all commits that followed the specific commit but doesn't delete the changes made within those commits  
 git reset --hard - does the same but deletes the changes as well  
 git revert githash - creates a new commit where the changes from specified githash are deleted but the commit itself isn't  
+  
+If you want to reverse some commits that other people already have on their machines, you should revert instead of reset. If you want to reverse commits that you made but aren't shared yet - you can use reset.  
+  
 git remote -v - returns any existing remotes for your repository  
 git remote add [name(will be used as reference for the url)] [url] - adds a new remote to the current repository, used when you already have code written that you want to push to a GitHub repo  
 git remote rename [oldname] [newname] - renames the specified remote  
@@ -75,10 +78,15 @@ git clone url - used when you have a GitHub repo that you want to pull(clone) to
 If you clone a GitHub repo with multiple branches, if you use "git branch" in your local repo you'll only see the main/master branch but with "git branch -r" you'll see all other branches from the GitHub repo. To connect/switch to those you can simply use "git switch [branch-name]"  
 
 git branch -M main - renames your current branch to main, which is the standard branch name for GitHub, as opposed to master  
-  
+git fetch [remote] - downloads the latest changes made to a remote repository, without having to merge those changes to your local repository. If [remote] is not specified, it defaults to origin  
+git fetch [remote] [branch] - downloads from a specific branch 
+git pull [remote] [branch] - same as fetch but automatically integrates those changes to your working directory. If [remote] or [branch] aren't specified it will default to origin and whatever your current branch is tracking respectivelly  
 
 
-If you want to reverse some commits that other people already have on their machines, you should revert instead of reset. If you want to reverse commits that you made but aren't shared yet - you can use reset.  
+
+
+
+
 
   
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
