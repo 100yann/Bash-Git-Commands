@@ -76,6 +76,7 @@ git push -u remote branch - will set the upstream, so your repo will remember wh
 git push [remote] [local-branch]:[remote-branch] - pushes specified local branch to a specific branch on GitHub  
 git clone url - used when you have a GitHub repo that you want to pull(clone) to your local repo  
 If you clone a GitHub repo with multiple branches, if you use "git branch" in your local repo you'll only see the main/master branch but with "git branch -r" you'll see all other branches from the GitHub repo. To connect/switch to those you can simply use "git switch [branch-name]"  
+fork a github repo - this will make a duplicate repo in your own github profile so you can freely work with it without having to go through pull requests/protection of the original github repo  
 
 git branch -M main - renames your current branch to main, which is the standard branch name for GitHub, as opposed to master  
 git fetch [remote] - downloads the latest changes made to a remote repository, without having to merge those changes to your local repository. If [remote] is not specified, it defaults to origin  
