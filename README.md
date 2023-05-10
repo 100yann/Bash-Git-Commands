@@ -83,7 +83,10 @@ git fetch [remote] - downloads the latest changes made to a remote repository, w
 git fetch [remote] [branch] - downloads from a specific branch 
 git pull [remote] [branch] - same as fetch but automatically integrates those changes to your working directory. If [remote] or [branch] aren't specified it will default to origin and whatever your current branch is tracking respectivelly  
 
-git rebase - used as an alternative to merging or a cleanup tool. It will move or combine a sequence of commits to a new base commit. If you have a main and secondary or more branches, when you merge you will continue having your linear secondary or more branches, going parallel with your main branch. With rebase, your secondary branch will start from the end of the main branch. Rebasing will recreate all your secondary branch commits on the tip(end) of the main branch. *Never rebase commits that are already shared with others.*
+git rebase - used as an alternative to merging or a cleanup tool. It will move or combine a sequence of commits to a new base commit. If you have a main and secondary or more branches, when you merge you will continue having your linear secondary or more branches, going parallel with your main branch. With rebase, your secondary branch will start from the end of the main branch. Rebasing will recreate all your secondary branch commits on the tip(end) of the main branch. *Never rebase commits that are already shared with others.*  
+  
+git rebase -i HEAD~X - enters interactive mode, which allows us to edit commits, add files, drop commits, etc. ~X specifies how many commits we want to go back. After using it you can use 'pick' to use the commit, 'reword' to use the commit but edit the commit message, 'edit' - use the commit but edit it, 'fixup' to use the commit contents but merge it into a previous commit, 'drop to remove the commit  
+
 
   
 adding a file/directory within a .gitignore file will stop git from tracking changes to these files and commiting them; asterisk *.extension* will ignore all files with the specified extension, folder/ will ignore an entire directory
