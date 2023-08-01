@@ -57,3 +57,23 @@ var newObject = {
         console.log('Hello ' + this.name)
     }
 }
+
+// Repeatedly call a function or execute a code snippet, with a fixed time delay between each call.
+setInterval('function()', 10000) // interval is in milliseconds (10000 = 10sec)
+
+
+// Document attributes
+document.URL // returns the URL of the website
+document.body // everything inside the body
+document.head // everything inside the head
+document.links // all links on the page
+
+// Document methods
+document.getElementById('id') // returns the element with the specified id
+document.getElementByClassName('class') // returns a list of all elements with specified class name
+document.getElementByTagName('tag') // returns a list of all elements with specified tag
+document.querySelector('css selector - .class/#id/tag') // returns the first element that matches the css selector
+document.querySelectorAll('css selector - .class/#id/tag') // returns all objects matching the css selector
+
+// You can store an element inside the variable and change its attributes 
+// by calling variable.style.color = newColor for example
