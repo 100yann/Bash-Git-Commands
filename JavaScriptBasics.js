@@ -100,3 +100,12 @@ var special = document.querySelector('#special') // get the entire div with id s
 var specialA = special.querySelector('a') // get the <a> tag inside the div
 specialA.getAttribute('href') // get the attribute
 specialA.setAttribute('href', 'www.bing.com') // edit the attribute (sorry google)
+
+
+// Event Listeners - call a function on click/hover/etc.
+special.addEventListener('mouseover', function(){
+    // Some code
+})
+// Different event listeners - mouseover, mouseout, click, dblclick
+
+
