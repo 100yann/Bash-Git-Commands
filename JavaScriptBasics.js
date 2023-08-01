@@ -77,3 +77,26 @@ document.querySelectorAll('css selector - .class/#id/tag') // returns all object
 
 // You can store an element inside the variable and change its attributes 
 // by calling variable.style.color = newColor for example
+
+
+// Example HTML
+// <p> This is some text </p>
+
+var paragraph = document.querySelector('p') // select the first element with a paragraph tag
+
+paragraph.textContent // show the text currently in the paragraph tag
+paragraph.textContent = 'This is some NEW text' // change the text inside the paragraph tag
+// textContent will treat everything as a string, so you cannot use HTML tags inside
+
+paragraph.innerHTML // show the actual HTML
+paragraph.innerHTML = 'This is some <strong>NEW</strong> text' // edit
+
+// Example HTML
+// <div id='special'> 
+//    <a href='www.google.com'></a>
+// </div>
+
+var special = document.querySelector('#special') // get the entire div with id special
+var specialA = special.querySelector('a') // get the <a> tag inside the div
+specialA.getAttribute('href') // get the attribute
+specialA.setAttribute('href', 'www.bing.com') // edit the attribute (sorry google)
