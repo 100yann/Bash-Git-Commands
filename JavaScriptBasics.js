@@ -109,3 +109,29 @@ special.addEventListener('mouseover', function(){
 // Different event listeners - mouseover, mouseout, click, dblclick
 
 
+// Selecting with jQuery
+$('a') // selects all a tags
+$('.container') // selects elements with the class 
+$('#id') // selects element with id
+
+ // edit css with jQuery using .css
+var x = $('a')
+x.css('background', 'green') // css property, value
+// You can pass an entire object with multiple key:value pairs
+x.eq(index).css() // eq(index) will select only one element inside the variable x 
+                 //if threre's a list of elements inside x
+
+$('h1').text() // get the text inside the tag
+$('h1').text('NEW TEXT') // update the text inside the tag
+$('h1').html() // get html
+$('h1').html('new html/text') // edit html
+
+// edit attribute using .attr
+$('input').attr('type', 'checkbox')
+
+// edit value using .val
+$('input').val('new val')
+
+x.addClass('class') // adds a class to the tag
+x.removeClass('class') // remove
+x.toggleClass('class') // toggles on/off
