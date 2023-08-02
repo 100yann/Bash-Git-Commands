@@ -135,3 +135,24 @@ $('input').val('new val')
 x.addClass('class') // adds a class to the tag
 x.removeClass('class') // remove
 x.toggleClass('class') // toggles on/off
+
+// event handling with jQuery
+$('h1').click(function(){
+    $(this).text() // change the text of the passed tag 
+})
+
+
+// KEY PRESS
+$('input').eq(0).keypress(function(event){
+    console.log(event.which); // this will print which key was pressed (will return key code)
+})
+
+// on()
+$('h1').on('dblclick', function(){
+    $(this).toggleClass('class)
+})
+
+// animations
+$('input').on('click', function(){
+    $(this).fadeOut(3000)
+})
