@@ -43,4 +43,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = BASE_DIR.joinpath('templates')
 
 To return a template, in views.py you need to return render(request, 'template_name.html', context=ifany)
+
+
+STATIC FILES
+Like Templates, you need to store the STATIC_DIR in a variable and pass it to Django in settings.py
+Then you can store all static_dirs as a list under STATIC_URL inside 
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+You create a folder called static inside the parent project directory where your files will be stored
+To load static files in your .html you need to add 
+{% load static %} under DOCTYPE in your .html
 '''

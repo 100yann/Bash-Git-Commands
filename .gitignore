@@ -1,2 +1,4 @@
 django/django_venv/
 django/__pycache__
+django/first_project/first_project/__pycache__
+django/first_project/first_app/__pycache__
