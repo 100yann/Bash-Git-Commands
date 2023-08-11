@@ -30,7 +30,7 @@ def populate(N=5):
         # Create new webpage entry
         webpg = WebPage.objects.get_or_create(topic=top, url=fake_url, name=fake_name)[0]
 
-        acc_record = AccessRecord.objects.get_or_create(name=webpg, date=fake_date)[0]
+        acc_rec = AccessRecord.objects.get_or_create(name=webpg, date=fake_date)[0]
 
 if __name__ == '__main__':
     print('populating script!')

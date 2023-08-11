@@ -90,4 +90,12 @@ admin.site.register(YourModelName2)
 To use your admin page, it's recommened to add a superuser so only they can use the admin panel
 To do this, run "python manage.py createsuperuser" inside the parent directory and
 fill in the name, email, and password
+
+
+Models-Templates-Views Paradigm
+1) In views.py import any models that we will need to use
+2) Use the view to query the model for data that we'll need
+3) Pass results from the model to the template
+4) Edit the template so that it is ready to accept and display the data from the model
+5) Map a URL to the view
 '''
