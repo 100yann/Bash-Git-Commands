@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from django.conf.urls import include
+from first_app import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('first_app/', include('first_app.urls')),
+    path('forms', views.form_view, name='forms'),
     re_path(r'.*', include('first_app.urls')),
-
 ]
