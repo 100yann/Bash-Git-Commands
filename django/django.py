@@ -153,4 +153,18 @@ def clean(self):
     # check if email == verified emails
     if email != vmail:
         raise ValidationError('Make sure emails match!')
+
+
+We can also use ModelForms - forms that are based off the table model
+from django import forms
+from app_name.models import ModelName
+
+
+class NewForm(forms.ModelForm):
+    YOU CAN DEFINE YOUR OWN FORMS HERE OR JUST LEAVE THE class META TO DEFINE ALL FORMS
+    class Meta:
+        model = ModelName
+        fields = '__all__' OR exclude = ['field1', 'field2'] OR fields = ('field1', field2')
+
+Then in views.py the POST request should call form.save() to save the data to the model
 '''
