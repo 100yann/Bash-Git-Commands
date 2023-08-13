@@ -98,4 +98,59 @@ Models-Templates-Views Paradigm
 3) Pass results from the model to the template
 4) Edit the template so that it is ready to accept and display the data from the model
 5) Map a URL to the view
+
+
+FORMS 
+To use Django Forms:
+
+Create a forms.py in your app
+
+forms.py
+from django import forms
+from django.core import validators
+
+class NewForm(forms.Form()):
+    name = forms.CharField()
+    email = forms.EmailField()
+    etc.
+
+    
+import the forms inside views.py and pass the
+form to the html template
+
+from . import forms
+form = forms.NewForm()
+return render(request, 'template', {'form': form})
+
+You can wrap Django's forms inside an html form tag to
+use the method attribute and add an input with type submit to
+catch 'post' requests.
+
+from . import forms
+form = forms.NewForm()
+if request.method == 'POST':
+    form = forms.NewForm(request.POST)
+    if form.is_valid():
+        name = form.cleaned_data('name')
+return render(request, 'template', {'form': form})
+
+
+You can make custom validators in your forms.py file
+
+CUSTOM VALIDATOR 
+def check_name(value):
+    if value[0].lower() != 'z':
+        raise forms.ValidationError('NAME NEEDS TO START WITH Z')
+name = forms.CharField(validators=[check_name])
+        
+
+You can also check the data inside the form class:
+# get all data from the form
+def clean(self):
+    cleaned_data = super().clean()
+    email = cleaned_data.get('email')
+    vmail = cleaned_data.get('verify_email')
+    # check if email == verified emails
+    if email != vmail:
+        raise ValidationError('Make sure emails match!')
 '''
