@@ -167,4 +167,12 @@ class NewForm(forms.ModelForm):
         fields = '__all__' OR exclude = ['field1', 'field2'] OR fields = ('field1', field2')
 
 Then in views.py the POST request should call form.save() to save the data to the model
+
+
+Relative URLS
+Instead of passing hardcoded URLs like a path to a URL, we can use Django's template tagging
+to pass a relative URL like
+<a href='{% url 'some-url-name' v1 v2}'></a>
+
+Note: the {% url 'X' %} takes in the path name argument, not the route
 '''
