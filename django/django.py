@@ -175,4 +175,24 @@ to pass a relative URL like
 <a href='{% url 'some-url-name' v1 v2}'></a>
 
 Note: the {% url 'X' %} takes in the path name argument, not the route
+
+
+Template Inheritance/Extending
+Extend a base template to other .htmls
+You can create your base template and add it to another .html using 
+{% extends parent_dir/base.html %}
+
+You can use blocks to customize the template content using
+
+base.html
+div class='container'
+{% block block_name %}
+{% endblock %}
+/div
+
+index.html
+{% block block_name %}
+h1 Hi /h1
+{% endblock}
+
 '''

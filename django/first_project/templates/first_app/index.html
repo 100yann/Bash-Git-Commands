@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-{% load static %}
+{% extends 'first_app/base.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Level 2</title>
-    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}"/>
-</head>
-<body>
+{% load static %}
+    {% block body_block %}
     <h1>Welcome to Django Level Two</h1>
     <h2>Here are your access records:</h2>
     <div class="djangtwo">
@@ -32,6 +26,4 @@
     <img src="{% static 'images/download.jpg' %}" alt="">
     <a href="{% url 'form' %}">Register!</a>
     <a href="{% url 'admin:index' %}">Admin</a>
-
-</body>
-</html>
+    {% endblock %}
