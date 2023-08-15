@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from first_app.models import Topic, WebPage, AccessRecord
 from . import forms
 # Create your views here.
@@ -31,7 +31,7 @@ def index(request):
     else:
         user_form = forms.UserForm()
         profile_form = forms.UserProfileInfoForm()
-        return render(request, 'first_app/index.html', context={'registered': registered,
+        return render(request, 'first_app/index.html', context={'registere  gitd': registered,
                                                                 'profile_form': profile_form,
                                                                 'user_form': user_form})
 
@@ -46,3 +46,30 @@ def form_view(request):
 
    
     return render(request, 'first_app/form_page.html', {'form': form} )
+
+
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+
+def user_login(request):
+    logged_in = False
+    if request.method == "POST":
+        username = request.POST.get('username') # get data from the post request
+        password = request.POST.get('password')
+        print(username, password)
+        user = authenticate(username=username, password=password)
+
+        if user:
+            login(request, user)
+            logged_in = True
+            print('yea \n\n\n\n')
+            return render(request, 'first_app/login.html', context={'logged_in': logged_in})
+
+    return render(request, 'first_app/login.html', context={'logged_in': logged_in})
+
+@login_required
+def user_logout(request):
+    logout(request)
+    print('\n\n logged out \n\n')
+    return HttpResponseRedirect('login')

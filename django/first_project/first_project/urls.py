@@ -23,6 +23,9 @@ from first_app import views
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('forms', views.form_view, name='form'),
+    path('login', views.user_login, name='user_login'),
+    path('logout', views.user_logout, name='user_logout'),
     re_path(r'.*', include('first_app.urls')),
     path('index', include('first_app.urls')),
+
 ]
