@@ -200,4 +200,5 @@ Template filters
 You can perform operations on values within templates.
 {{ heading | title}} - This will capitalize the beginning of each word inside heading
 {{ number | add:"2"}} - Will perform number X + 2 and display the result
+
 '''

@@ -3,27 +3,18 @@
 
 {% load static %}
     {% block body_block %}
-    <h1>Welcome to Django Level Two</h1>
-    <h2>Here are your access records:</h2>
-    <div class="djangtwo">
-        {% if access_records %}
-            <table>
-                <thead>
-                    <th>Site Name</th>
-                    <th>Date Accessed</th>
-                </thead>
-                {% for acc in access_records %}
-                <tr>
-                    <td>{{ acc.name.name }}</td>
-                    <td>{{ acc.date }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+        <h1>Welcome to Django Level Two</h1>
+        {% if registered %}
+            <h1>Registered</h1>
         {% else %}
-            <p>NO RECORDS FOUND!</p>
+            <h1>Fill out the form:</h1>
+            <form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p}}
+                <input type="submit" value="Register">
+            </form>
         {% endif %}
-        </div>
-    <img src="{% static 'images/download.jpg' %}" alt="">
     <a href="{% url 'form' %}">Register!</a>
     <a href="{% url 'admin:index' %}">Admin</a>
     {% endblock %}

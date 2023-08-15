@@ -1,7 +1,8 @@
 from django import forms
 from django.core import validators
 from django.core.exceptions import ValidationError
-
+from django.contrib.auth.models import User
+from first_app.models import UserProfileInfo
 
 
 # CUSTOM VALIDATOR 
@@ -27,3 +28,17 @@ class FormName(forms.Form):
         # check if email == verified emails
         if email != vmail:
             raise ValidationError('Make sure emails match!')
+        
+
+# NEW USER FORMS
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta():
+        model = User
+        fields = ('username', 'email', 'password')
+
+class UserProfileInfoForm(forms.ModelForm):
+    class Meta():
+        model = UserProfileInfo
+        fields = ('portfolio_site', 'profile_pic')
