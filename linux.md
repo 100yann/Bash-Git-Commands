@@ -1,6 +1,11 @@
 # Linux
 
 man x - manual for X command
+whatis x - one line description of X command
+apropos - find a command based on a keyword
+absolute path - the path of a file from the root directory - cd /home/user/X
+relative path - the path in relation to the current working directory - cd X from /home/user
+alias newcommand=existingcommand - set an existing command to a new custom command
 
 ### Working with directories
 - pwd - print working (current) directory
@@ -42,6 +47,10 @@ man x - manual for X command
 - lsblk - lists block devices
 - top - display linux processes
 - htop - a better visualization of top. If not installed - sudo apt install htop
+- history - show command history
+- env - show list of environment variables
+- export VARIABLE=value - make a new env variable for the current shell instance
+- echo 'export PROJECT=MERCURY' >> ~/.profile - save the env variable in .profile to make it persistent
 
 
 ## Network Commands
