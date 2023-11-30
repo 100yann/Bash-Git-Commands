@@ -1,5 +1,23 @@
 # Linux
 
+### Kernel 
+The main layer between the OS and hardware of the computer. 
+The kernel is responsible for 4 key tasks 
+- Memory Management
+- Process Management
+- Device Drivers
+- Systel Calls and Security
+
+##### Memory Management
+Memory is divided in two:
+1. Kernel Space - the portion of memory that the Kernel uses to execute its services
+2. User Space - all processes (user programs) outside of the Kernel Space.
+
+User programs get access to data or allocated in memory by making **system calls** to the kernel which communicates with the hardware to handle the request.
+   
+uname -r - return the kernel version
+
+### General Commands
 man x - manual for X command
 whatis x - one line description of X command
 apropos - find a command based on a keyword
@@ -51,7 +69,14 @@ alias newcommand=existingcommand - set an existing command to a new custom comma
 - env - show list of environment variables
 - export VARIABLE=value - make a new env variable for the current shell instance
 - echo 'export PROJECT=MERCURY' >> ~/.profile - save the env variable in .profile to make it persistent
-
+- dmesg - print or control the kernel ring buffer
+- udevadm info --query=path --name=/dev/device - gives details about a device
+- lspci - display information about all PCI devices
+- lsblk - display information about disk devices
+- lscpu - display detailed info about the cpu
+- lsmem --summary - display available memory in the system
+- free -m - display the free vs used memory in MB
+- lshw - display info about the hardware of the computer
 
 ## Network Commands
 - ifconfig - returns network data. If not installed - sudo apt install net-tools
@@ -64,3 +89,6 @@ alias newcommand=existingcommand - set an existing command to a new custom comma
 - sudo apt upgrade - upgrade the available updates if any
 - sudo apt install X - install package
 - sudo apt remove X - uninstall package
+
+### Linux Directories 
+- /dev/ - installed devices show up in this directory
