@@ -2,11 +2,11 @@
 
 ### Kernel 
 The main layer between the OS and hardware of the computer. 
-The kernel is responsible for 4 key tasks 
-- Memory Management
-- Process Management
-- Device Drivers
-- Systel Calls and Security
+The kernel is responsible for 4 key tasks:
+1. Memory Management
+2. Process Management
+3. Device Drivers
+4. Systel Calls and Security
 
 ##### Memory Management
 Memory is divided in two:
@@ -15,7 +15,7 @@ Memory is divided in two:
 
 User programs get access to data or allocated in memory by making **system calls** to the kernel which communicates with the hardware to handle the request.
    
-uname -r - return the kernel version
+- uname -r - return the kernel version
 
 ### General Commands
 man x - manual for X command
@@ -40,6 +40,16 @@ alias newcommand=existingcommand - set an existing command to a new custom comma
 
 
 ### Working with files
+There are 3 types of files:
+1. Regular - images, scripts, configuration / data files
+2. Directory - folders
+3. Special Files:
+   3.1. Character Files - devices under the /dev directory, such as the mouse and keyboard
+   3.2. Block Files - hard disks and RAM
+   3.3. Links - Hard Links and Soft Links
+   3.4. Socket Files
+   3.5. Named Pipes
+   
 - rm - remove file
 - file X - returns X's file type
 - touch - create a file
@@ -61,6 +71,7 @@ alias newcommand=existingcommand - set an existing command to a new custom comma
 - free - returns amount of free and used memory in the system
 - ps -A - a snapshot of current processes 
 - df - return used and available disk space
+- df -hP
 - fdisk - manipulate disk partition table
 - lsblk - lists block devices
 - top - display linux processes
@@ -91,4 +102,25 @@ alias newcommand=existingcommand - set an existing command to a new custom comma
 - sudo apt remove X - uninstall package
 
 ### Linux Directories 
-- /dev/ - installed devices show up in this directory
+- /dev - installed devices show up in this directory
+- /opt - stores any third party programs
+- /mnt - used to mount file systems temporarily
+- /tmp - used to store temporary data
+- /media - all external media is mounted under /media.
+- /bin - basics programs and binary
+- /etc - most of the configuration files in linux
+- /lib - shared libraries
+- /usr - all user applications and user data
+- /var - directory where the system stores log
+
+### Linux Boot Sequence
+1. BIOS POST
+2. Boot Loader
+3. Kernel Initialization
+4. INIT Process
+
+Systemd target - what interface your Linux OS displays. runlevel 5 boots a GUI, runlevel 3 boots a terminal
+- runlevel - check what runlevel your systemd is using
+- systemctl get-default - return the default target of the systemd
+- systemctl set-default multi-user.target/graphical.targert - set the default target to a terminal/GUI interface respectivelly
+- ls -l /sbin/init - check the init process of the systemd
