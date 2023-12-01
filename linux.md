@@ -124,3 +124,29 @@ Systemd target - what interface your Linux OS displays. runlevel 5 boots a GUI, 
 - systemctl get-default - return the default target of the systemd
 - systemctl set-default multi-user.target/graphical.targert - set the default target to a terminal/GUI interface respectivelly
 - ls -l /sbin/init - check the init process of the systemd
+
+### Package Manager
+A package manager provides installation, upgrading, and removing packages from the Linux OS. 
+- Package managers on Debian distributions:
+   - DPKG
+   - APT
+- Package managers on Red Hat, Fedora, Centos distributions:
+   - RPM
+   - YUM
+   - DNF
+
+##### RPM Commands
+- rpm -ivh package name - install a package
+- rpm -e package name - remove a package
+- rpm -Uvh package name - upgrade package
+- rpm -q package name - get details about an installed package
+- rpm -Vf path to file - verifies the package is installed successfully
+  
+##### YUM Commands
+YUM works on RPM distributions
+- yum install package
+- yum repolist - display all repos installed on the system
+- yum provides argument - check which package should be installed based on the command passed as an argument
+- yum remove package
+- yum update package
+- yum update - checks all packages and marks any that can be updated
