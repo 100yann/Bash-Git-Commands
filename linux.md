@@ -257,6 +257,10 @@ The VI editor has 3 modes:
    - `:q!` - quit without confirmation
 
 ```
-vi /home/user/filename.txt
+vi or vim /home/user/filename.txt
 ```
 Open or edit a file inside VI editor
+```
+editor
+```
+Check which editor is default
