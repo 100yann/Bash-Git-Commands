@@ -17,15 +17,22 @@ User programs get access to data or allocated in memory by making **system calls
    
 - uname -r - return the kernel version
 
+---
+
 ### General Commands
-man x - manual for X command
-whatis x - one line description of X command
-apropos - find a command based on a keyword
-absolute path - the path of a file from the root directory - cd /home/user/X
-relative path - the path in relation to the current working directory - cd X from /home/user
-alias newcommand=existingcommand - set an existing command to a new custom command
+- man x - manual for X command
+- whatis x - one line description of X command
+- apropos - find a command based on a keyword
+- alias newcommand=existingcommand - set an existing command to a new custom command
+
+---
 
 ### Working with directories
+absolute path - the path of a file from the root directory - cd /home/user/X
+
+relative path - the path in relation to the current working directory - cd X from /home/user
+
+
 - pwd - print working (current) directory
 - cd - change directory. If it has no arguments it takes you to your home directory. 
 - ls - list directory contents
@@ -38,17 +45,18 @@ alias newcommand=existingcommand - set an existing command to a new custom comma
 - rmdir -p - remove directory tree
 - rm -rf - this command will also delete a folder. -r stands for recursively and -f for force 
 
+---
 
 ### Working with files
 There are 3 types of files:
 1. Regular - images, scripts, configuration / data files
 2. Directory - folders
 3. Special Files:
-   3.1. Character Files - devices under the /dev directory, such as the mouse and keyboard
-   3.2. Block Files - hard disks and RAM
-   3.3. Links - Hard Links and Soft Links
-   3.4. Socket Files
-   3.5. Named Pipes
+      - Character Files - devices under the /dev directory, such as the mouse and keyboard
+      - Block Files - hard disks and RAM
+      - Links - Hard Links and Soft Links
+      - Socket Files
+      - Named Pipes
    
 - rm - remove file
 - file X - returns X's file type
@@ -64,9 +72,12 @@ There are 3 types of files:
 - cat > filename - allows you to input text when creating a file, to save use ctrl+d
 - more filename - breaks down large files into pages for easier viewing
 - less filename - opposite of more
+- du -sk filename / ls-lh filename - display the size of a file
 
 
-## System Commands
+---
+
+### System Commands
 - uptime - how long the system has been running
 - free - returns amount of free and used memory in the system
 - ps -A - a snapshot of current processes 
@@ -89,17 +100,13 @@ There are 3 types of files:
 - free -m - display the free vs used memory in MB
 - lshw - display info about the hardware of the computer
 
-## Network Commands
+---
+
+### Network Commands
 - ifconfig - returns network data. If not installed - sudo apt install net-tools
 - ip a - newer, more detailed version of ifconfig
 
-## Package Manager
-- sudo - "super user do" - gives current user priviliges to edit restricted files and operations
-- apt - "advanced package manager" install and update software packages
-- sudo apt update - check if you have updates to your packages
-- sudo apt upgrade - upgrade the available updates if any
-- sudo apt install X - install package
-- sudo apt remove X - uninstall package
+---
 
 ### Linux Directories 
 - /dev - installed devices show up in this directory
@@ -113,6 +120,8 @@ There are 3 types of files:
 - /usr - all user applications and user data
 - /var - directory where the system stores log
 
+---
+
 ### Linux Boot Sequence
 1. BIOS POST
 2. Boot Loader
@@ -125,6 +134,8 @@ Systemd target - what interface your Linux OS displays. runlevel 5 boots a GUI, 
 - systemctl set-default multi-user.target/graphical.targert - set the default target to a terminal/GUI interface respectivelly
 - ls -l /sbin/init - check the init process of the systemd
 
+---
+
 ### Package Manager
 A package manager provides installation, upgrading, and removing packages from the Linux OS. 
 - Package managers on Debian distributions:
@@ -134,6 +145,8 @@ A package manager provides installation, upgrading, and removing packages from t
    - RPM
    - YUM
    - DNF
+     
+- sudo - "super user do" - gives current user priviliges to edit restricted files and operations
 
 ##### RPM Commands
 - rpm -ivh package name - install a package
@@ -168,3 +181,55 @@ Relies on DPKG. Automatically resolve dependency issues when installing packages
 - apt upgrade - install available updates if any
 - apt edit-sources - opens the /etc/apt/sources.list in a text editor
 You can add more repositories by updating the sources.list file
+
+---
+
+### Working with Shell
+##### Archiving Files
+- tar -cf name.tar file1 file2 file3 - tar -c creates an archive -f allows us to specify the name of the archive
+- tar -tf name.tar - display the contents of the archive
+- tar -xf name.tar - extract the contents
+- tar -zcf name.tar files - compress the size of the archive
+
+##### Compressing Files
+There are 3 popular commands used for compression - the compression command will add a compression extension to the file - it can be uncompressed afterwards:
+- bzip2 filename - .bz2 - bunzip2
+- gzip filename - .gz - gunzip
+- xz filename - .xz - unxz
+
+You can read compressed files without uncompressing them using **zcat / bzcat / xzcat** filename
+
+##### Searching for Files and Directories
+- locate file/dir - locates and returns the path to the file/dir specified
+- updatedb - updates the database so locate finds recently-created files/folders
+- find dir -name filename - search for a file by name
+- grep searchpattern filename - search within a file for a match with the searchpattern
+- grep -i - case insensitive search
+- grep -r searchpattern directory - search for a pattern in the directory recursivelly, doesn't need a file as an option, and will return all files that match
+- grep -v searchpattern filename - returns a file that **does not** match the searchpattern
+- grep -w searchpattern filename - searches for a whole word, instead of characters
+- grep -A1 searchpattern filename - return the line matching the pattern, and the line under the matching line
+- grep -B1 searchpattern filename - same but previous line
+- grep -A1 -B1 searchpattern filename - same but both lines
+
+##### IO Redirection
+There are 3 data streams in Linux:
+1. Standard Input - stdin - data is sent to and read by the program
+2. Standard Output - stdout - data sent by the program
+3. Standard Error - stderr - errors sent by the program
+
+- echo $SHELL > filename.txt - redirect stdout to a file instead of the terminal. This will overwrite the contents of the file
+- echo $SHELL >> filename.txt - same but appends to the file
+- cat missing_file 2> error.txt - redirect stderr to a file
+- cat missing_file 2>> error.txt - same but append
+- cat missing_file 2> /dev/null - your program will not display/store errors
+
+##### Command Line Pipes
+Link together commands:  
+```
+sample.txt = Hello there!\nNice to see you!  
+grep Hello sample.txt | less
+```
+less will return only "Hello there", since that was the only input received from grep Hello sample.txt  
+- echo $SHELL | tee filename.txt - redirect stdout to a file and display it in the terminal. This will overwrite the contents of the file.
+- echo $SHELL | tee -a filename.txt - same but append input to contents
