@@ -233,3 +233,27 @@ grep Hello sample.txt | less
 less will return only "Hello there", since that was the only input received from grep Hello sample.txt  
 - echo $SHELL | tee filename.txt - redirect stdout to a file and display it in the terminal. This will overwrite the contents of the file.
 - echo $SHELL | tee -a filename.txt - same but append input to contents
+
+##### VI Editor
+The VI editor has 3 modes:
+1. Command Mode - a file is opened in command mode by default. To switch to insert mode, type lowercase `i`. To switch to last line, click `:` key
+- press `yy` to copy a line
+- press `p` to paste a line
+- `ZZ` to save a file
+- `x` to delete a letter
+- `dd` delete a whole line
+- `dINTd` delete int amount of lines
+- `u` undo
+- `ctrl r` redo
+- `/pattern` find a word that matches pattern from all text after the cursor while `?line` does this for all text before the cursor
+- `n` move down to next occurence of a match for `/`, move up to next match for `?`
+- `N` move up to next occurence for `/`, move down for `?`
+2. Insert Mode - allows you to add text. To switch back to command mode, click the `escape` key
+3. Last Line - allows you to save file, discard changes, exit. To switch back to CM, click the `escape` key
+- `:w` - write to file
+- `:q` - quit file
+- `:wq` - write and quit file
+- `:q!` - quit without confirmation
+   
+- vi /home/user/filename.txt - open or edit a file inside VI editor
+**VIM is an improved version of VI**
