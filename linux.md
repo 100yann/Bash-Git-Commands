@@ -150,3 +150,21 @@ YUM works on RPM distributions
 - yum remove package
 - yum update package
 - yum update - checks all packages and marks any that can be updated
+
+##### DPKG (Debian Package Manager)
+- dpkg -i package name - install
+- dpkg -r pn - uninstall
+- dpkg -l pn - list
+- dpkg -s pn - status
+- dpkg -p path to file - verify/ check version number
+
+##### APT
+Relies on DPKG. Automatically resolve dependency issues when installing packages
+- apt install name
+- apt remove name
+- apt search name
+- apt list
+- apt update - update all packages
+- apt upgrade - install available updates if any
+- apt edit-sources - opens the /etc/apt/sources.list in a text editor
+You can add more repositories by updating the sources.list file
