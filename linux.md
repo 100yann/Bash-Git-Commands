@@ -102,12 +102,6 @@ There are 3 types of files:
 
 ---
 
-### Network Commands
-- ifconfig - returns network data. If not installed - sudo apt install net-tools
-- ip a - newer, more detailed version of ifconfig
-
----
-
 ### Linux Directories 
 - /dev - installed devices show up in this directory
 - /opt - stores any third party programs
@@ -249,6 +243,7 @@ The VI editor has 3 modes:
    - `/pattern` find a word that matches pattern from all text after the cursor while `?line` does this for all text before the cursor
    - `n` move down to next occurence of a match for `/`, move up to next match for `?`
    - `N` move up to next occurence for `/`, move down for `?`
+   
 2. Insert Mode - allows you to add text. To switch back to command mode, click the `escape` key
 3. Last Line - allows you to save file, discard changes, exit. To switch back to CM, click the `escape` key
    - `:w` - write to file
@@ -264,3 +259,31 @@ Open or edit a file inside VI editor
 editor
 ```
 Check which editor is default
+
+---
+
+### Network
+#### DNS 
+**Name Resolution** - checking if a name matches an ip in /etc/hosts
+- cat >> /etc/hosts ip - name - save an ip address under a name
+- ping name/ip - check the network connectivity between host and server/host
+- nslookup - query a host name from a DNS server, does not consider the entries in /etc/hosts
+- dig - returns more details
+  
+To avoid adding too many entries into multiple systems, usually all entries are kept on a DNS server. All hosts point to that server by going into /etc/resolv.conf and adding `nameserver serverip`. A system can still have entries inside its /etc/hosts, and it will first check that before checking the DNS server. To change the order, go into /etc/nsswitch.conf and alter `hosts: dns files`
+
+You can also add another entry into your DNS server - `nameserver 8.8.8.8` which is a nameserver hosted by Google that knows about all websites on the internet. This will allow your system to ping external sites hosted on the internet.
+
+When you have multiple subdomains, you can access them more easily by adding `search domain name` in `/etc/resolv.conf`
+For example:
+```
+/etc/hosts = 192.168.1.1 web.company.com
+ping web will return an error
+/etc/resolv.conf = search company.com
+ping web will work successfully
+```
+
+**Record Types**
+- Storing IP to host names is known as A records
+- Storing IPv6 to host names is AAAA records (quad records)
+- Mapping 1 name to another name is CNAME records - multiple names for the same application
