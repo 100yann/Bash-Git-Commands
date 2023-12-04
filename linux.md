@@ -8,7 +8,7 @@ The kernel is responsible for 4 key tasks:
 3. Device Drivers
 4. Systel Calls and Security
 
-##### Memory Management
+#### Memory Management
 Memory is divided in two:
 1. Kernel Space - the portion of memory that the Kernel uses to execute its services
 2. User Space - all processes (user programs) outside of the Kernel Space.
@@ -148,14 +148,14 @@ A package manager provides installation, upgrading, and removing packages from t
      
 - sudo - "super user do" - gives current user priviliges to edit restricted files and operations
 
-##### RPM Commands
+#### RPM Commands
 - rpm -ivh package name - install a package
 - rpm -e package name - remove a package
 - rpm -Uvh package name - upgrade package
 - rpm -q package name - get details about an installed package
 - rpm -Vf path to file - verifies the package is installed successfully
   
-##### YUM Commands
+#### YUM Commands
 YUM works on RPM distributions
 - yum install package
 - yum repolist - display all repos installed on the system
@@ -164,14 +164,14 @@ YUM works on RPM distributions
 - yum update package
 - yum update - checks all packages and marks any that can be updated
 
-##### DPKG (Debian Package Manager)
+#### DPKG (Debian Package Manager)
 - dpkg -i package name - install
 - dpkg -r pn - uninstall
 - dpkg -l pn - list
 - dpkg -s pn - status
 - dpkg -p path to file - verify/ check version number
 
-##### APT
+#### APT
 Relies on DPKG. Automatically resolve dependency issues when installing packages
 - apt install name
 - apt remove name
@@ -185,13 +185,13 @@ You can add more repositories by updating the sources.list file
 ---
 
 ### Working with Shell
-##### Archiving Files
+#### Archiving Files
 - tar -cf name.tar file1 file2 file3 - tar -c creates an archive -f allows us to specify the name of the archive
 - tar -tf name.tar - display the contents of the archive
 - tar -xf name.tar - extract the contents
 - tar -zcf name.tar files - compress the size of the archive
 
-##### Compressing Files
+#### Compressing Files
 There are 3 popular commands used for compression - the compression command will add a compression extension to the file - it can be uncompressed afterwards:
 - bzip2 filename - .bz2 - bunzip2
 - gzip filename - .gz - gunzip
@@ -199,7 +199,7 @@ There are 3 popular commands used for compression - the compression command will
 
 You can read compressed files without uncompressing them using **zcat / bzcat / xzcat** filename
 
-##### Searching for Files and Directories
+#### Searching for Files and Directories
 - locate file/dir - locates and returns the path to the file/dir specified
 - updatedb - updates the database so locate finds recently-created files/folders
 - find dir -name filename - search for a file by name
@@ -212,7 +212,7 @@ You can read compressed files without uncompressing them using **zcat / bzcat / 
 - grep -B1 searchpattern filename - same but previous line
 - grep -A1 -B1 searchpattern filename - same but both lines
 
-##### IO Redirection
+#### IO Redirection
 There are 3 data streams in Linux:
 1. Standard Input - stdin - data is sent to and read by the program
 2. Standard Output - stdout - data sent by the program
@@ -224,7 +224,7 @@ There are 3 data streams in Linux:
 - cat missing_file 2>> error.txt - same but append
 - cat missing_file 2> /dev/null - your program will not display/store errors
 
-##### Command Line Pipes
+#### Command Line Pipes
 Link together commands:  
 ```
 sample.txt = Hello there!\nNice to see you!  
@@ -234,7 +234,7 @@ less will return only "Hello there", since that was the only input received from
 - echo $SHELL | tee filename.txt - redirect stdout to a file and display it in the terminal. This will overwrite the contents of the file.
 - echo $SHELL | tee -a filename.txt - same but append input to contents
 
-##### VI Editor
+#### VI Editor
 **VIM is an improved version of VI**
 The VI editor has 3 modes:
 1. Command Mode - a file is opened in command mode by default. To switch to insert mode, type lowercase `i`. To switch to last line, click `:` key
