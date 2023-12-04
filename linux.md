@@ -287,3 +287,25 @@ ping web will work successfully
 - Storing IP to host names is known as A records
 - Storing IPv6 to host names is AAAA records (quad records)
 - Mapping 1 name to another name is CNAME records - multiple names for the same application
+
+#### General Networking Concepts
+
+1. Switching - creates a network between 2 systems to connect them.
+   - `ip link` - list and modify interfaces on the host
+   - `ip addr` - see the ip address of those interfaces
+   - `ip addr add ipofswitch` - connect to the switch
+   - `ip link set dev name up` - turn on an interface
+     
+2. Router - connect networks together. It is assigned as many IPs as the number of network it connects
+   - `route` - check the routing configurations of the network
+     
+3. Gateway - creates a route from the network to the router
+   - `ip route add ipofnetwork via ipofrouter` - set up the gateway from the network to the router
+   - `ip route add default via ipofrouter` - add this router as the default gateway to other networks
+
+These changes are valid until the system restarts. To save these changes, they need to be added to /etc/network/interfaces file
+- `hostname -i` - check your system's ip
+- `telnet servername portnum` - check the status of a port
+
+#### Troubleshooting
+- `traceroute ip` - trace the devices through which the connection goes through. It will show if there's an issue with a device
