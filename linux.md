@@ -140,7 +140,7 @@ A package manager provides installation, upgrading, and removing packages from t
    - YUM
    - DNF
      
-- sudo - "super user do" - gives current user priviliges to edit restricted files and operations
+- `sudo` - "super user do" - gives current user priviliges to edit restricted files and operations. The default configuration for the sudo command is in `/etc/sudoers` and can be edited with `visudo`
 
 #### RPM Commands
 - rpm -ivh package name - install a package
@@ -309,3 +309,40 @@ These changes are valid until the system restarts. To save these changes, they n
 
 #### Troubleshooting
 - `traceroute ip` - trace the devices through which the connection goes through. It will show if there's an issue with a device
+
+---
+
+### Security and File Permissions
+The information about a user is stored in `cat /etc/passwd`
+- `uid` - a unique id for each linux user
+- `id username` - check UID, GID
+- `grep -i username /etc/passwd` - check the home dir and default shell associated with a user
+- `who` - see a list of currently logged in users
+- `last` - displays a record of all logged in users
+
+Groups - a collection of Linux users. Each group has a unique id called `gid`
+
+#### Access Control Files
+`grep -i ^user dir`
+- `/etc/passwd` - the returned data is formatted as follows: USERNAME:PASSWORD:UID:GID:GECOS:HOMEDIR:SHELL
+- `/etc/shadow` - stores user passwords - The returned data is formatted as follows: USERNAME:PASSWORD:LASTCHANGE:MINAGE:MAXAGE:WARN:INACTIVE:EXPDATE
+- `/etc/group` - stores info about groups - NAME:PASSWORD:GID:MEMBERS
+
+#### Managing Users
+- `useradd username` - add a new user
+- `passwd username` - add password for the user
+- `whoami` - returns the current user
+- `passwd` - change your own password
+- `userdel username` - delete a user
+- `groupadd -g GID name` - create a new group. `-g` allows you to specify a custom group id.
+- `groupdel groupname` - delete a group
+  
+##### Useradd common options:
+- `-c` - custom comments
+- `-d` - custom home directory
+- `-e`- expiry date
+- `-g` - specific GID
+- `-G` - create user with multiple secondary groups
+- `-s` - specify login shells
+- `-u` - specific UID
+
