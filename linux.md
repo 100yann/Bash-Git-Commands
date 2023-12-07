@@ -373,3 +373,19 @@ Permissions can also be changed by using the octal values of permissions:
 - `chmod 555 file` - read and execute access to all users
 - `chmod 660 file` - read and write access for owner and group, no access for other users
 - `chmod 750 file` - full access for user, read and execute for group, no access for other users
+
+#### SSH 
+Used to login and execute commands on a remote system. To work, the remote system should have an SSH service running and port 22 be accessible. There should also be a valid user you can use on the remote system or an SSH key.
+- `ssh hostname OR ipaddress`
+- `ssh user@hostname OR ipaddress`
+
+Passwordless SSH - the remote system has a private key, you have a public key which you use to access the remote system.
+- `ssh-keygen -t rsa` - generate a key pair.
+- `/home/user/.ssh/id_rsa.pub` - the public key
+- `/home/user/.ssh/id_rsa` - the private key
+- `ssh-copy-id user@host or ip` - connect remotely using the key pair, will be prompted for a password the first time only. The public key will be installed on the remote system inside `/home/user/.ssh/authorized_keys`
+- `Ctrl + D` - quit ssh session
+
+#### SCP
+- `scp localdir hostname:dir` - Allows you to copy files to and from a remote server. `-pr` - allows you to copy directories
+
