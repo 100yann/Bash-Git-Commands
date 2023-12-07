@@ -346,3 +346,30 @@ Groups - a collection of Linux users. Each group has a unique id called `gid`
 - `-s` - specify login shells
 - `-u` - specific UID
 
+#### File permssions
+- `chown username:group file` - change the owner of a file to username and add group. If a group is not provided, only the ownership is changed.
+- `chown -R` - recursivelly change the owner of a folder and files and folders inside it.
+- `chgrp groupname file` - change the group of a file
+  
+```
+ls -ld folder
+OR 
+ls -l bash-script.sh
+returns -rwxrwxr-x ...
+```
+1. The first three characters `rwx` are the permissions for the owner of the file = u.
+2. The next three `rwx` are the permissions for the group owning the file = g.
+3. The last three characters `r-x` are the permissions for all other users = o.
+**`r` = read/4, `w` = write/2, `x` = execute/1, `-` = no permission/0.**
+
+- `chmod <permissions> file` - change the permissions of a file
+- `chmod u+rwx file` - full access to the owner
+- `chmod ugo+r-x file` - read access to owner, group and other users, remove execute access
+- `chmod o-rwx file` - remove all permissions for other users
+- `chmod u+rwx,g+r-x,o-rwx` - full access for owner, read access for group and remove execute access, no access for other users
+
+Permissions can also be changed by using the octal values of permissions:
+- `chmod 777 file` - full access to all users
+- `chmod 555 file` - read and execute access to all users
+- `chmod 660 file` - read and write access for owner and group, no access for other users
+- `chmod 750 file` - full access for user, read and execute for group, no access for other users
