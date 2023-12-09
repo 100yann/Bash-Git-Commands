@@ -447,7 +447,22 @@ RestartSec=10                           - rerun every 10sec if failed
 WantedBy graphical.target               - service starts in graphical target
 ```
 
-- `systemctl start name.service` - run the service in the background
-- `systemctl daemon-reload` - reloads the file so the system recognises any changes made
-- `systemctl status name.service` - check if a service is running
-- `systemctl stop name.service` - stop a background service
+#### SYSTEMCTL
+SYSTEMCTL is the main command to manage services
+
+- `systemctl daemon-reload` - reloads the system manager, so it recognizes changes to the service file
+- `systemctl start name` - run the service in the background
+- `systemctl stop name` - stop a background service
+- `systemctl restart name` - restart service
+- `systemctl reload name` - reload the service
+- `systemctl enable name` - enable the service
+- `systemctl disable name` - disable
+- `systemctl status name` - check service status. Services have 3 states - Active, Inactive, and Failed
+- `systemctl edit name --full` - apply the changes immediatelly, without having to use daemon-reload
+- `systemctl list-units --all` - list all services and their statuses
+- `systemctl list-units` - list all active services
+
+#### JOURNALCTL
+- `journalctl` - returns all log entries from oldest to newest
+- `journalctl -u name` - returns log entries of a specific service
+- `journalctl -b` - entries from the current boot
