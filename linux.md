@@ -403,5 +403,23 @@ Allows you to set up network accessibility rules.
 - `iptables -A INPUT -p tpc --dport22 -j DROP` - drop any inputs from other ips
 - `iptables -D OUTPUT 5` - delete OUTPUT rule at position 5
 - `nestat -an | grep 5432` - check network connection for port 5432
-
+  
 **Ephemeral Ports - ports between 32768 - 60999 temporary ports used on a per request basis**
+
+#### CRON
+cron job - a user can specify a date, time or frequency to schedule a task/command
+- `crontab -l` - list all existing jobs
+- `crontab -e` - used to open the cron tab where you will add jobs
+```
+m        h  dom mon    dow      command 
+minute hour day month weekday
+0        21  *   *      *       uptime >> /tmp/system-report.txt
+
+At 9 o'clock save the system's uptime in a file called system-report.txt
+A "*" means any/every day/month/etc.
+Step values - "*/2" - run every 2 minutes
+```
+**Do not use cron -e with sudo, since this will schedule the job for the root user**
+
+![image](https://github.com/100yann/Learning_Materials/assets/111984273/15419011-a735-486d-82e1-e3f3ba11563c)
+Image provided by KodeKloud
