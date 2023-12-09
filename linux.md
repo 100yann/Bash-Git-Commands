@@ -384,8 +384,24 @@ Passwordless SSH - the remote system has a private key, you have a public key wh
 - `/home/user/.ssh/id_rsa.pub` - the public key
 - `/home/user/.ssh/id_rsa` - the private key
 - `ssh-copy-id user@host or ip` - connect remotely using the key pair, will be prompted for a password the first time only. The public key will be installed on the remote system inside `/home/user/.ssh/authorized_keys`
-- `Ctrl + D` - quit ssh session
+- `Ctrl + D` or `exit` - quit ssh session
 
 #### SCP
 - `scp localdir hostname:dir` - Allows you to copy files to and from a remote server. `-pr` - allows you to copy directories
 
+#### IP Tables
+Allows you to set up network accessibility rules. 
+- `sudo apt install iptables`
+- `iptables -L` - list the default rules configured in the system. INPUT - receiving connections, OUTPUT - sending connection, FORWARD - connection is forwarded. The default rules accept all traffic.
+- `iptables -A INPUT -p tcp -s system's IP --dport 22 -j ACCEPT` - add a rule that accepts input from the system's IP on port 22 
+     - `-A` - add rule. You can use `-I` to insert the rule at the top of the chain
+     - `-p` - protocol
+     - `-s` - source, used for INPUT rules
+     - `-d` - destination, used for OUTPUT rules
+     - `--dport` - destination port
+     - `-j` - action to take
+- `iptables -A INPUT -p tpc --dport22 -j DROP` - drop any inputs from other ips
+- `iptables -D OUTPUT 5` - delete OUTPUT rule at position 5
+- `nestat -an | grep 5432` - check network connection for port 5432
+
+**Ephemeral Ports - ports between 32768 - 60999 temporary ports used on a per request basis**
