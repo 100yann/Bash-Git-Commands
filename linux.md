@@ -423,3 +423,31 @@ Step values - "*/2" - run every 2 minutes
 
 ![image](https://github.com/100yann/Learning_Materials/assets/111984273/15419011-a735-486d-82e1-e3f3ba11563c)
 Image provided by KodeKloud
+
+---
+
+### SYSTEM D
+
+To run a command in the background, you have to create a service unit file in `/etc/systemd/system/name.service`. 
+
+```
+name.service:
+[Unit]
+Description = ...                       - description of the service
+Documentation = ...                     - documentation link
+After = postgresql.service              - run after postgresql
+
+[Service]
+ExecStart=absolute path to the command  - service to execute
+User=user                               - specify which user should run this service
+Restart=on-failure                      - rerun the service if it fails
+RestartSec=10                           - rerun every 10sec if failed
+
+[Install]
+WantedBy graphical.target               - service starts in graphical target
+```
+
+- `systemctl start name.service` - run the service in the background
+- `systemctl daemon-reload` - reloads the file so the system recognises any changes made
+- `systemctl status name.service` - check if a service is running
+- `systemctl stop name.service` - stop a background service
