@@ -466,3 +466,22 @@ SYSTEMCTL is the main command to manage services
 - `journalctl` - returns all log entries from oldest to newest
 - `journalctl -u name` - returns log entries of a specific service
 - `journalctl -b` - entries from the current boot
+
+---
+
+### Storage
+#### Storage Basics
+**Block Devices** - a type of file found under the /dev directory. It usually represents a piece of hardware that can store data - an ssd, hdd, etc. `lsblk` will show you all current block devices. An entire disk can be broken into `disk partitions`, allowing you to segment space for specific uses.
+There are 3 types of disk partitions:
+   1. Primary Partition - can be used to boot an OS
+   2. Extended Partition - cannot be used on its own, but can host logical partitions. Extended partitions allow to be further partitioned.
+   3. Logical Partitions - additional subpartitions in an extended partition
+
+
+**Partition Scheme** - how a disk is partitioned
+   1. `MBR` - Master Boot Record - there can only be 4 partitions per disk with MBR, and the maximum size per disk is 2TB. If you need more than 4 partitions, you'd need make one an extended partition, which can be further partitioned.
+   2. `GPT` - GUID Partition Table - more recent partitioning scheme. GPT can have unlimited partitions, unless the OS restricts this. GPT is the best choice unless your OS requires MBR.
+
+      
+- `sudo fdisk -l /dev/name` - list partition table and additional info, also used to create and delete partitions.
+- `gdisk /dev/device` - takes you into a menu driven interface. The `?` key will show you a list of commands. The `n` key will create a new partition. The `w` command will save the new partition.
