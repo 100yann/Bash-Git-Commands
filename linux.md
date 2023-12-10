@@ -485,3 +485,24 @@ There are 3 types of disk partitions:
       
 - `sudo fdisk -l /dev/name` - list partition table and additional info, also used to create and delete partitions.
 - `gdisk /dev/device` - takes you into a menu driven interface. The `?` key will show you a list of commands. The `n` key will create a new partition. The `w` command will save the new partition.
+
+#### Linux Filesystems
+After partitioning a disk, you have to create a filesystem, then mount it to a directory, in order to use it.
+
+`EXT2` VS `EXT3` VS `EXT4` Filesystems
+![image](https://github.com/100yann/Learning_Materials/assets/111984273/616f96c8-3bf4-47ca-9e8d-6360cf04d114)
+Image by KodeKloud
+
+Making a filesystem:
+```
+mkfs.ext4 /dev/name - create an ext4 file system
+mkdir /mnt/ext4
+mount /dev/sdb1 /mnt/ext4 - mount the new filesystem
+mount | grep /dev/sdb1 - check if it was successfully mounted
+
+To make this mount be available after system reboot, add an entry to the /etc/fstab:
+echo "/dev/sdb1 /mnt/ext4 ext4 rw 0 0" >> /etc/fstab
+```
+![image](https://github.com/100yann/Learning_Materials/assets/111984273/b21a2ad7-084d-43a8-9095-6635f2e4b288)
+
+Image by KodeKloud
